@@ -43,6 +43,7 @@ def plot_mef(ba, df_elec, df_co2, which='generation'):
         '\n' + rf'MEF: {np.around(mef, 2)} kg/MWh'
     ax.text(x_text, y_text, textstr, bbox=props, fontsize=12)
     plt.grid()
+    os.makedirs("figs", exist_ok=True)
     plt.savefig(os.path.join("figs", f"{ba}_{which}.pdf"))
 
     return (ba_, ba_co2), mef, r2
